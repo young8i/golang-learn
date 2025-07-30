@@ -7,23 +7,28 @@ func isValid(s string) bool {
 	left := []rune{'{', '[', '('}
 	right := []rune{'}', ']', ')'}
 	// 切片
-	stack := []rune{}
+	stackLeft := []int{}
+	stackRight := []int{}
 	for _, v := range s {
 		for i := 0; i < len(left); i++ {
 			if v == left[i] {
-				stack = append(stack, v)
+				stackLeft = append(stackLeft, i)
 			}
 		}
-		fmt.Println("stack======>", stack)
 		for i := 0; i < len(right); i++ {
 			if v == right[i] {
-				if len(stack) == 0 {
-					return false
-				}
-				if left[i] != stack[len(stack)-1] {
-					return false
-				}
+				stackRight = append(stackRight, i)
 			}
+		}
+	}
+
+	if !(len(stackLeft) == len(stackRight)) {
+		return false
+	}
+
+	for i := 0; i < len(stackLeft); i++ {
+		if !(stackLeft[i] == stackRight[i]) && !(stackLeft[i] == stackRight[len(stackLeft)-i-1]) {
+			return false
 		}
 	}
 	return true
@@ -34,5 +39,5 @@ func isValid(s string) bool {
  * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效
  */
 func main() {
-	fmt.Println("result===>", isValid("[{}]"))
+	fmt.Println("result===>", isValid("[({})]"))
 }
