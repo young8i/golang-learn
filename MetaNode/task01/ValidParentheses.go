@@ -6,7 +6,7 @@ func isValid(s string) bool {
 
 	left := []rune{'{', '[', '('}
 	right := []rune{'}', ']', ')'}
-	// 切片
+
 	stackLeft := []int{}
 	stackRight := []int{}
 	for _, v := range s {
