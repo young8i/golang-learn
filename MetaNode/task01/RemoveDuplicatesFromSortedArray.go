@@ -15,6 +15,7 @@ func removeDFSA(nums []int) int {
 			nums[i] = nums[j]
 		}
 	}
+	fmt.Println(nums[:i+1])
 	return i + 1
 }
 

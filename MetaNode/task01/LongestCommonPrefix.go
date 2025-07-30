@@ -31,7 +31,7 @@ func maxStringLength(arr []string) int {
 
 func allCharsSame(arr []rune) bool {
 	if len(arr) == 0 {
-		return true
+		return false
 	}
 	first := arr[0]
 	for _, v := range arr[1:] {
