@@ -24,5 +24,5 @@ func twoSum(nums []int, target int) []int {
  * 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数
  */
 func main() {
-	fmt.Println("result======>", twoSum([]int{2, 7, 7, 9}, 9))
+	fmt.Println("result======>", twoSum([]int{2, 2, 7, 9}, 9))
 }
